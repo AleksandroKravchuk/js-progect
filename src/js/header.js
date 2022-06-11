@@ -1,38 +1,113 @@
-// export default headerRefs = {
+// Refs
+const refs = {
+  headerContainer: document.querySelector('.js-header-container'),
+  nav: document.querySelector('.nav'),
+  logo: document.querySelector('.js-logo'),
+  homeBtn: document.querySelector('a[data-link="home"]'),
+  myLibraryBtn: document.querySelector('a[data-link="library"]'),
+  form: document.querySelector('.js-submit'),
+  myLibraryBtns: document.querySelector('.js-librari-list'),
+  watchedBtn: document.querySelector('.js-watched-btn'),
+  queueBtn: document.querySelector('.js-queue-btn'),
+};
+
+const {
+  headerContainer,
+  nav,
+  logo,
+  homeBtn,
+  myLibraryBtn,
+  form,
+  myLibraryBtns,
+  watchedBtn,
+  queueBtn,
+} = refs;
+
+function onShowMyLibrary() {
+  myLibraryBtns.classList.remove('is-hidden');
+  form.classList.add('is-hidden');
+  homeBtn.classList.remove('current-page');
+  myLibraryBtn.classList.add('current-page');
+  headerContainer.classList.add('header__library-bg');
+  headerContainer.classList.remove('header__home-bg');
+  headerContainer.classList.add('header__library-padding');
+  headerContainer.classList.remove('header__home-padding');
+  nav.classList.add('nav__library-margin');
+  nav.classList.remove('nav__home-margin');
+}
+
+function onShowHome() {
+  myLibraryBtns.classList.add('is-hidden');
+  form.classList.remove('is-hidden');
+  homeBtn.classList.add('current-page');
+  myLibraryBtn.classList.remove('current-page');
+  headerContainer.classList.add('header__home-bg');
+  headerContainer.classList.remove('header__library-bg');
+  headerContainer.classList.add('header__home-padding');
+  headerContainer.classList.remove('header__library-padding');
+  nav.classList.add('nav__home-margin');
+  nav.classList.remove('nav__library-margin');
+}
+
+export { onShowMyLibrary, onShowHome };
+
+// Refs
+// const refs = {
+//     headerContainer: document.querySelector('.js-header-container'),
+//     nav: document.querySelector('.nav'),
+//     logo: document.querySelector('.js-logo'),
 //     homeBtn: document.querySelector('a[data-link="home"]'),
 //     myLibraryBtn: document.querySelector('a[data-link="library"]'),
-//     libraryBottons: document.querySelector('.librari-list'),
-// }
+//     form: document.querySelector('.js-submit'),
+//     myLibraryBtns: document.querySelector('.js-librari-list'),
+//   };
 
-// const { homeBtn, myLibraryBtn, libraryBottons } = headerRefs;
+//   const {
+//     headerContainer,
+//     nav,
+//     logo,
+//     homeBtn,
+//     myLibraryBtn,
+//     form,
+//     myLibraryBtns,
+//   } = refs;
 
-// console.log('homeBtn: ', headerRefs.homeBtn);
-// console.log('myLibraryBtn: ', headerRefs.myLibraryBtn);
+// const header = new Header();
+//   let searchQuery = '';
 
-export default class Header {
-    refs = {
-        homeBtn: document.querySelector('a[data-link="home"]'),
-        myLibraryBtn: document.querySelector('a[data-link="library"]'),
-        libraryBottons: document.querySelector('.librari-list'),
-    }
+// Listiners
+//   logo.addEventListener('click', onLogoClick);
+//   homeBtn.addEventListener('click', onHomeBtnClick);
+//   myLibraryBtn.addEventListener('click', onMyLybraryBtnClick);
+//   form.addEventListener('submit', onFormSubmit);
 
-    getRefs() {
+// function onLogoClick(e) {
+//     e.preventDefault();
+//     console.log('onLogoClick');
+//     onShowHome();
+//   }
 
-    }
+//   function onHomeBtnClick(e) {
+//     e.preventDefault();
+//     console.log('onHomeBtnClick');
+//     onShowHome();
+//   }
 
-    showLibraryBtn() {
+//   function onMyLybraryBtnClick(e) {
+//     e.preventDefault();
+//     console.log('onMyLybraryBtnClick');
+//     onShowMyLibrary();
+//   }
 
-    }
+//   function onFormSubmit(e) {
+//     e.preventDefault();
+//     searchQuery = e.currentTarget.elements.searchQuery.value.trim();
 
-    hideLibraryBtn() {
+//     if (!searchQuery) {
+//       alert('Not correct search key');
+//       return;
+//     }
 
-    }
-
-    showForm() {
-
-    }
-
-    hideForm() {
-        
-    }
-} 
+//     console.log('onFormSubmit');
+//     console.log(searchQuery);
+//   }
